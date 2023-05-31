@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalCrossing", "AnimalCrossing.csproj", "{DF6F3A37-6ED7-4919-B4BD-860BBD86F918}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF6F3A37-6ED7-4919-B4BD-860BBD86F918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6F3A37-6ED7-4919-B4BD-860BBD86F918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF6F3A37-6ED7-4919-B4BD-860BBD86F918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF6F3A37-6ED7-4919-B4BD-860BBD86F918}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76475127-4141-4938-BE73-C238325DDA83}
+	EndGlobalSection
+EndGlobal
