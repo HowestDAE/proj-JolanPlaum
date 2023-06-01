@@ -1,0 +1,39 @@
+﻿{
+  "id": 2,
+  "file-name": "pale_chub",
+  "name": {
+    "name-USen": "pale chub",
+    "name-EUen": "pale chub",
+    "name-EUde": "Döbel",
+    "name-EUes": "cacho",
+    "name-USes": "cacho",
+    "name-EUfr": "chevaine",
+    "name-USfr": "chevaine",
+    "name-EUit": "zacco",
+    "name-EUnl": "Japanse drakenvis",
+    "name-CNzh": "溪哥",
+    "name-TWzh": "溪哥",
+    "name-JPja": "オイカワ",
+    "name-KRko": "피라미",
+    "name-EUru": "светлый закко"
+  },
+  "availability": {
+    "month-northern": "",
+    "month-southern": "",
+    "time": "9am - 4pm",
+    "isAllDay": false,
+    "isAllYear": true,
+    "location": "River",
+    "rarity": "Common",
+    "month-array-northern": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+    "month-array-southern": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+    "time-array": [ 9, 10, 11, 12, 13, 14, 15 ]
+  },
+  "shadow": "Smallest (1)",
+  "price": 200,
+  "price-cj": 300,
+  "catch-phrase": "I caught a pale chub! That name seems a bit judgy...",
+  "museum-phrase": "The pale chub is a river fish with simple back-and-silver coloring. Interestingly, the males' coloring becomes most vibrant when he's trying to attract a mate! Though normally plain, these fellows really know how to look stylish when they want to. Perhaps I could learn a thing or two from the pale chub...",
+  "image_uri": "https://acnhapi.com/v1/images/fish/2",
+  "icon_uri": "https://acnhapi.com/v1/icons/fish/2"
+}

@@ -1,0 +1,38 @@
+﻿{
+  "id": 2,
+  "file-name": "yellow_butterfly",
+  "name": {
+    "name-USen": "yellow butterfly",
+    "name-EUen": "yellow butterfly",
+    "name-EUde": "Zitronenfalter",
+    "name-EUes": "mariposa colias",
+    "name-USes": "mariposa colias",
+    "name-EUfr": "citrin",
+    "name-USfr": "citrin",
+    "name-EUit": "farfalla gialla",
+    "name-EUnl": "citroenvlinder",
+    "name-CNzh": "斑缘点粉蝶",
+    "name-TWzh": "斑緣點粉蝶",
+    "name-JPja": "モンキチョウ",
+    "name-KRko": "노랑나비",
+    "name-EUru": "желтушка"
+  },
+  "availability": {
+    "month-northern": "3-6 & 9-10",
+    "month-southern": "9-12 & 3-4",
+    "time": "4am - 7pm",
+    "isAllDay": false,
+    "isAllYear": false,
+    "location": "Flying",
+    "rarity": "Common",
+    "month-array-northern": [ 3, 4, 5, 6, 9, 10 ],
+    "month-array-southern": [ 9, 10, 11, 12, 3, 4 ],
+    "time-array": [ 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
+  },
+  "price": 160,
+  "price-flick": 240,
+  "catch-phrase": "I caught a yellow butterfly! Shouldn't all BUTTERflies be yellow?",
+  "museum-phrase": "Allow me to enlighten you... The yellow butterfly is named for its yellow wings. Need I say more? If I must, then allow me to note that the female yellow butterfly can lay up to 600 eggs at a time! Bleech! And their creepy crawly caterpillars just love to chomp on clover plants. A recipe for disaster, I say. Just imagine reaching for a four-leaf clover, only to touch a larva instead! Yuck! The worst of luck!",
+  "image_uri": "https://acnhapi.com/v1/images/bugs/2",
+  "icon_uri": "https://acnhapi.com/v1/icons/bugs/2"
+}

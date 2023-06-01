@@ -1,0 +1,39 @@
+﻿{
+  "id": 3,
+  "file-name": "crucian_carp",
+  "name": {
+    "name-USen": "crucian carp",
+    "name-EUen": "crucian carp",
+    "name-EUde": "Karausche",
+    "name-EUes": "carpín",
+    "name-USes": "carpín",
+    "name-EUfr": "carassin",
+    "name-USfr": "carassin",
+    "name-EUit": "carassio",
+    "name-EUnl": "kroeskarper",
+    "name-CNzh": "鲫鱼",
+    "name-TWzh": "鯽魚",
+    "name-JPja": "フナ",
+    "name-KRko": "붕어",
+    "name-EUru": "карась"
+  },
+  "availability": {
+    "month-northern": "",
+    "month-southern": "",
+    "time": "",
+    "isAllDay": true,
+    "isAllYear": true,
+    "location": "River",
+    "rarity": "Common",
+    "month-array-northern": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+    "month-array-southern": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+    "time-array": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ]
+  },
+  "shadow": "Small (2)",
+  "price": 160,
+  "price-cj": 240,
+  "catch-phrase": "I caught a crucian carp! My skills are sharp!",
+  "museum-phrase": "I wonder... Do you know how to tell the difference between a crucian carp and a standard-issue carp? It's quite easy to tell the two apart... One must simply locate the barbels. Or, rather, the lack of them! And just what is a barbel, you ask? Well, a barbel looks a little something like a mustache. A run-of-the-mill carp will sport this unsightly \"facial hair,\" while a crucian carp is considerably better groomed! I tried to grow a mustache when I was younger. It never did fill in quite right... All for the best in the end, as mustaches go so much better with noses than with beaks!",
+  "image_uri": "https://acnhapi.com/v1/images/fish/3",
+  "icon_uri": "https://acnhapi.com/v1/icons/fish/3"
+}

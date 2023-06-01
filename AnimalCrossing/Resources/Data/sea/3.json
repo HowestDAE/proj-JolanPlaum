@@ -1,0 +1,37 @@
+﻿{
+  "id": 3,
+  "file-name": "sea_cucumber",
+  "name": {
+    "name-USen": "sea cucumber",
+    "name-EUen": "sea cucumber",
+    "name-EUde": "Seegurke",
+    "name-EUnl": "zeekomkommer",
+    "name-EUes": "pepino de mar",
+    "name-USes": "pepino de mar",
+    "name-EUfr": "concombre de mer",
+    "name-USfr": "concombre de mer",
+    "name-EUit": "cetriolo di mare",
+    "name-CNzh": "海参",
+    "name-TWzh": "海參",
+    "name-JPja": "ナマコ",
+    "name-KRko": "해삼",
+    "name-EUru": "морской огурец"
+  },
+  "availability": {
+    "month-northern": "11-4",
+    "month-southern": "5-10",
+    "time": "",
+    "isAllDay": true,
+    "isAllYear": false,
+    "month-array-northern": [ 11, 12, 1, 2, 3, 4 ],
+    "month-array-southern": [ 5, 6, 7, 8, 9, 10 ],
+    "time-array": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ]
+  },
+  "speed": "Very slow",
+  "shadow": "Medium",
+  "price": 500,
+  "catch-phrase": "I got a sea cucumber! It's a bit cumbersome",
+  "image_uri": "https://acnhapi.com/v1/images/sea/3",
+  "icon_uri": "https://acnhapi.com/v1/icons/sea/3",
+  "museum-phrase": "The sea cucumber, much like its relatives the sea urchin and sea star, has no heart nor brain. However, unlike its relatives, it has no shell nor spikes to with which to protect itself either. So how does a softy such as this stay safe in the open ocean? Brace yourself I say… when threatened sea cucumbers jettison their innards out of their backsides! Hoo! Gross but true! The sticky, stringy stuff ensnares predators, allowing the cuke to make its escape and grow its insides back. One might say…the sea cucumber is a GUTSY creature, indeed. Hoo hoo, hee hee! Do forgive me!"
+}

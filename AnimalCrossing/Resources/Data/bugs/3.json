@@ -1,0 +1,38 @@
+﻿{
+  "id": 3,
+  "file-name": "tiger_butterfly",
+  "name": {
+    "name-USen": "tiger butterfly",
+    "name-EUen": "tiger butterfly",
+    "name-EUde": "Schwalbenschwanz",
+    "name-EUes": "mariposa tigre",
+    "name-USes": "mariposa tigre",
+    "name-EUfr": "machaon",
+    "name-USfr": "machaon",
+    "name-EUit": "farfalla tigre",
+    "name-EUnl": "koninginnenpage",
+    "name-CNzh": "凤蝶",
+    "name-TWzh": "鳳蝶",
+    "name-JPja": "アゲハチョウ",
+    "name-KRko": "호랑나비",
+    "name-EUru": "махаон"
+  },
+  "availability": {
+    "month-northern": "3-9",
+    "month-southern": "9-3",
+    "time": "4am - 7pm",
+    "isAllDay": false,
+    "isAllYear": false,
+    "location": "Flying",
+    "rarity": "Common",
+    "month-array-northern": [ 3, 4, 5, 6, 7, 8, 9 ],
+    "month-array-southern": [ 9, 10, 11, 12, 1, 2, 3 ],
+    "time-array": [ 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
+  },
+  "price": 240,
+  "price-flick": 360,
+  "catch-phrase": "I caught a tiger butterfly! I've earned my stripes!",
+  "museum-phrase": "Tiger butterflies are known for their majestic wings, which many consider quite beautiful. Truth be told, I find them monstrous! Those strange striped patterns... They give this owl the goose bumps! And while you may imagine young tiger butterfly larvae to look like lovely green caterpillars...it's not so! Why, when tiger butterflies are but babes, they're covered in unsightly white, brown, and black spots. In this way, they camouflage themselves as...as...bird droppings! Putrid pests, indeed!",
+  "image_uri": "https://acnhapi.com/v1/images/bugs/3",
+  "icon_uri": "https://acnhapi.com/v1/icons/bugs/3"
+}
