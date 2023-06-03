@@ -86,6 +86,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\BaseCritter.cs" />
+    <Compile Include="Model\BugsCritter.cs" />
+    <Compile Include="Model\FishCritter.cs" />
+    <Compile Include="Model\SeaCritter.cs" />
+    <Compile Include="Repository\CritterLocalRepository.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="View\Converters\TypeToIconConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -122,9 +129,32 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EmbeddedResource Include="Resources\Data\bugs.json" />
+    <EmbeddedResource Include="Resources\Data\fish.json" />
+    <EmbeddedResource Include="Resources\Data\sea.json" />
+    <EmbeddedResource Include="Resources\Data\bugs\1.json" />
+    <EmbeddedResource Include="Resources\Data\bugs\2.json" />
+    <EmbeddedResource Include="Resources\Data\bugs\3.json" />
+    <EmbeddedResource Include="Resources\Data\fish\1.json" />
+    <EmbeddedResource Include="Resources\Data\fish\2.json" />
+    <EmbeddedResource Include="Resources\Data\fish\3.json" />
+    <EmbeddedResource Include="Resources\Data\sea\1.json" />
+    <EmbeddedResource Include="Resources\Data\sea\2.json" />
+    <EmbeddedResource Include="Resources\Data\sea\3.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Icons\bugs.png" />
+    <Resource Include="Resources\Icons\fish.png" />
+    <Resource Include="Resources\Icons\sea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\bugs_selected.png" />
+    <Resource Include="Resources\Icons\fish_selected.png" />
+    <Resource Include="Resources\Icons\sea_selected.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\CommunityToolkit.Mvvm.8.2.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets" Condition="Exists('packages\CommunityToolkit.Mvvm.8.2.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets')" />

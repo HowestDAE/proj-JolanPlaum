@@ -4,9 +4,42 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimalCrossing"
+        xmlns:vm="clr-namespace:AnimalCrossing.ViewModel"
+        xmlns:conv="clr-namespace:AnimalCrossing.View.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <conv:TypeToIconConverter x:Key="TypeToIcon"/>
+    </Window.Resources>
+    <Window.Background>
+        <!-- Tilable background texture (viewport is size of source image) -->
+        <ImageBrush ImageSource="https://imgur.com/kDceiYx.png" TileMode="Tile"
+                    AlignmentX="Left" AlignmentY="Top" Stretch="None"
+                    Viewport="0,0,512,512" ViewportUnits="Absolute"/>
+    </Window.Background>
+
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" MaxHeight="200" MinHeight="50"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <ListBox ItemsSource="{Binding CritterTypes}" SelectedItem="{Binding SelectedType}"
+                 Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding ., Converter={StaticResource TypeToIcon}}" Stretch="Uniform"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
