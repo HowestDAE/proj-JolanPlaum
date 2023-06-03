@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimalCrossing.Model
 {
-	public class BugCritter : BaseCritter
+	public class BugsCritter : BaseCritter
 	{
 		public override string Type { get { return "bugs"; } }
 	}
