@@ -92,6 +92,7 @@
     <Compile Include="Model\SeaCritter.cs" />
     <Compile Include="Repository\CritterLocalRepository.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="View\Converters\EndpointToIconConverter.cs" />
     <Compile Include="View\Converters\TypeToIconConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
