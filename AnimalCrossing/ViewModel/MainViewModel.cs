@@ -46,6 +46,11 @@ namespace AnimalCrossing.ViewModel
 
 			CritterList = _localRepository.GetCritters();
 			CritterTypes = _localRepository.GetCritterTypes();
+
+			if (CritterTypes.Count > 0)
+			{
+				SelectedType = CritterTypes[0];
+			}
 		}
 	}
 }

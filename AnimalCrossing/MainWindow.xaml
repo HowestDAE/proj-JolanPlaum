@@ -24,7 +24,7 @@
 
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" MaxHeight="200" MinHeight="30"/>
+            <RowDefinition Height="1*" MaxHeight="100" MinHeight="30"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
@@ -45,19 +45,33 @@
         </ListBox>
         
         <!-- Bottom of the screen: list of critters -->
-        <ListBox ItemsSource="{Binding CritterList}" SelectedItem="{Binding SelectedCritter}" Grid.Row="1"
-                 Background="Transparent" HorizontalAlignment="Center"
-                 ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}}"/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Image Source="{Binding UrlEndpoint, Converter={StaticResource EndpointToIcon}}" Stretch="None"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Grid x:Name="FilteredCritterList" Grid.Row="1" ShowGridLines="True"
+              Margin="20,5,20,0" Background="Transparent">
+            <!-- Listbox filled with the filtered critters -->
+            <ListBox ItemsSource="{Binding CritterList}" SelectedItem="{Binding SelectedCritter}"
+                     Background="Transparent" HorizontalAlignment="Center" BorderThickness="0"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel MaxWidth="{Binding ActualWidth, ElementName=FilteredCritterList}"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="BorderBrush" Value="#8a7c63"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Viewbox MaxWidth="200" MaxHeight="{Binding ActualHeight, ElementName=FilteredCritterList}"
+                                 MinWidth="50" MinHeight="50" Stretch="Uniform">
+                            <Image Source="{Binding UrlEndpoint, Converter={StaticResource EndpointToIcon}}"/>
+                        </Viewbox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </Grid>
 </Window>
