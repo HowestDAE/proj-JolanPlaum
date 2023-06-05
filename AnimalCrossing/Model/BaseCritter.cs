@@ -12,17 +12,17 @@ namespace AnimalCrossing.Model
 		[JsonProperty("id")]
 		public string Id { get; set; }
 
-		[JsonProperty("name.name-EUen")]
-		public string Name { get; set; }
+		[JsonProperty("name")]
+		private NestedName _name { get; set; }
+
+		[JsonIgnore]
+		public string Name { get { return _name.Name; } }
 
 		[JsonProperty("price")]
 		public int Price { get; set; }
 
-		[JsonProperty("availability.month-array-northern")]
-		public List<int> Months { get; set; }
-
-		[JsonProperty("availability.time-array")]
-		public List<int> Times { get; set; }
+		[JsonProperty("availability")]
+		public Availability Available { get; set; }
 
 		[JsonIgnore]
 		public abstract string Type { get; }
@@ -35,5 +35,20 @@ namespace AnimalCrossing.Model
 				return $"/{Type}/{Id}";
 			}
 		}
+	}
+
+	public class NestedName
+	{
+		[JsonProperty("name-EUen")]
+		public string Name { get; set; }
+	}
+
+	public class Availability
+	{
+		[JsonProperty("month-array-northern")]
+		public List<int> Months { get; set; }
+
+		[JsonProperty("time-array")]
+		public List<int> Times { get; set; }
 	}
 }
