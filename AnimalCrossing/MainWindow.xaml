@@ -22,28 +22,45 @@
                     Viewport="0,0,512,512" ViewportUnits="Absolute"/>
     </Window.Background>
 
+    <!-- Main grid -->
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" MaxHeight="100" MinHeight="30"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
-        <!-- Top of the screen: type filter -->
-        <ListBox ItemsSource="{Binding CritterTypes}" SelectedItem="{Binding SelectedType}"
-                 Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Image Source="{Binding ., Converter={StaticResource TypeToIcon}}" Stretch="Uniform"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        
+        <!-- Top of the screen: filter options -->
+        <Grid x:Name="FilterOptions" Margin="0,10" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Rectangle Grid.ColumnSpan="3" Height="2" VerticalAlignment="Bottom" Fill="#8a7c63"/>
+
+            <Viewbox Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <ListBox ItemsSource="{Binding CritterTypes}" SelectedItem="{Binding SelectedType}" Background="#f6f6de" BorderBrush="Transparent"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding ., Converter={StaticResource TypeToIcon}}" Stretch="Uniform"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Viewbox>
+            <Grid x:Name="MonthFilter" Grid.Column="1">
+                <!-- TODO: add this if time left over -->
+            </Grid>
+            <Grid x:Name="TimeFilter" Grid.Column="1">
+                <!-- TODO: add this if time left over -->
+            </Grid>
+        </Grid>
+
         <!-- Bottom of the screen: list of critters -->
         <Grid x:Name="FilteredCritterList" Grid.Row="1" ShowGridLines="True"
               Margin="20,5,20,0" Background="Transparent">
