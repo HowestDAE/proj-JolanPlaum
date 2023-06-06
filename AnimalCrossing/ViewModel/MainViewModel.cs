@@ -1,5 +1,6 @@
 ﻿using AnimalCrossing.Model;
 using AnimalCrossing.Repository;
+using AnimalCrossing.View;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace AnimalCrossing.ViewModel
 {
@@ -14,43 +16,27 @@ namespace AnimalCrossing.ViewModel
 	{
 		private CritterLocalRepository _localRepository;
 
-		private string _selectedType;
-		public string SelectedType
-		{
-			get { return _selectedType; }
-			set {
-				_selectedType = value;
-				OnPropertyChanged(nameof(SelectedType));
+		private OverViewPage MasterPage { get; } = new OverViewPage();
 
-				CritterList = _localRepository.GetCritters(SelectedType);
-				OnPropertyChanged(nameof(CritterList));
+		private Page _currentPage;
+
+		public Page CurrentPage
+		{
+			get { return _currentPage; }
+			set
+			{
+				_currentPage = value;
+				OnPropertyChanged(nameof(CurrentPage));
 			}
 		}
-
-		private BaseCritter _selectedCritter;
-		public BaseCritter SelectedCritter
-		{
-			get { return _selectedCritter; }
-			set {
-				_selectedCritter = value;
-				OnPropertyChanged(nameof(SelectedCritter));
-			}
-		}
-
-		public List<string> CritterTypes { get; private set; }
-		public List<BaseCritter> CritterList { get; private set; }
 
 		public MainViewModel()
 		{
 			_localRepository = new CritterLocalRepository();
 
-			CritterList = _localRepository.GetCritters();
-			CritterTypes = _localRepository.GetCritterTypes();
+			CurrentPage = MasterPage;
 
-			if (CritterTypes.Count > 0)
-			{
-				SelectedType = CritterTypes[0];
-			}
+			(MasterPage.DataContext as OverViewVM).LocalRepository = _localRepository;
 		}
 	}
 }
