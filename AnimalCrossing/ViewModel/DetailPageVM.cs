@@ -10,13 +10,7 @@ namespace AnimalCrossing.ViewModel
 {
 	public class DetailPageVM : ObservableObject
 	{
-		private BaseCritter _critter = new SeaCritter()
-		{
-			Id = 1,
-			Available = new Availability(){ Months = "3-9",
-											Times = "5-17"},
-			Price = 32000
-		};
+		private BaseCritter _critter;
 
 		public BaseCritter Critter
 		{
@@ -24,6 +18,7 @@ namespace AnimalCrossing.ViewModel
 			set
 			{
 				_critter = value;
+				OnPropertyChanged(nameof(Critter));
 
 				_infoList = new List<KeyValuePair<string, string>>
 				{
@@ -40,6 +35,7 @@ namespace AnimalCrossing.ViewModel
 				{
 					_infoList.Add(new KeyValuePair<string, string>("Speed", speed.Speed));
 				}
+				OnPropertyChanged(nameof(InfoList));
 			}
 		}
 
