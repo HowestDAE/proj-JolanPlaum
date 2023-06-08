@@ -10,7 +10,7 @@ namespace AnimalCrossing.Model
 	public abstract class BaseCritter
 	{
 		[JsonProperty("id")]
-		public string Id { get; set; }
+		public int Id { get; set; }
 
 		[JsonProperty("name")]
 		private NestedName _name { get; set; }
@@ -45,10 +45,10 @@ namespace AnimalCrossing.Model
 
 	public class Availability
 	{
-		[JsonProperty("month-array-northern")]
-		public List<int> Months { get; set; }
+		[JsonProperty("month-northern")]
+		public string Months { get; set; }
 
-		[JsonProperty("time-array")]
-		public List<int> Times { get; set; }
+		[JsonProperty("time")]
+		public string Times { get; set; }
 	}
 }

@@ -55,7 +55,10 @@ namespace AnimalCrossing.Repository
 
 			foreach (JToken token in data)
 			{
-				_critters.Add((BaseCritter)token.ToObject(type));
+				BaseCritter critter = (BaseCritter)token.ToObject(type);
+				if (critter.Available.Months == "") critter.Available.Months = "All year";
+				if (critter.Available.Times == "") critter.Available.Times = "All day";
+				_critters.Add(critter);
 			}
 		}
 	}
