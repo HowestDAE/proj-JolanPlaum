@@ -1,17 +1,18 @@
 ﻿using AnimalCrossing.Model;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AnimalCrossing.Repository
 {
-	public class CritterLocalRepository : ICritterRepository
+	public class CritterApiRepository : ICritterRepository
 	{
+		private readonly string _baseUrl = "http://acnhapi.com/v1a/";
 		private List<BaseCritter> _critters;
 
 		public async Task<List<BaseCritter>> GetCrittersAsync()
@@ -44,21 +45,31 @@ namespace AnimalCrossing.Repository
 
 		private async Task LoadCritterTypeAsync(string critterType)
 		{
-			Stream stream = System.Reflection.Assembly
-				.GetExecutingAssembly().GetManifestResourceStream
-				($"AnimalCrossing.Resources.Data.{critterType.ToLower()}.json");
+			string endpoint = $"{_baseUrl}{critterType.ToLower()}/";
 
-			string json = await new StreamReader(stream).ReadToEndAsync();
-
-			Type type = Type.GetType($"AnimalCrossing.Model.{critterType}Critter");
-			var data = JArray.Parse(json);
-
-			foreach (JToken token in data)
+			using (HttpClient client = new HttpClient())
 			{
-				BaseCritter critter = (BaseCritter)token.ToObject(type);
-				if (critter.Available.Months == "") critter.Available.Months = "All year";
-				if (critter.Available.Times == "") critter.Available.Times = "All day";
-				_critters.Add(critter);
+				try
+				{
+					var response = await client.GetAsync(endpoint);
+
+					if (!response.IsSuccessStatusCode)
+						throw new HttpRequestException(response.ReasonPhrase);
+
+					string json = await response.Content.ReadAsStringAsync();
+
+					Type type = Type.GetType($"AnimalCrossing.Model.{critterType}Critter");
+					var data = JArray.Parse(json);
+
+					foreach (JToken token in data)
+					{
+						BaseCritter critter = (BaseCritter)token.ToObject(type);
+						if (critter.Available.Months == "") critter.Available.Months = "All year";
+						if (critter.Available.Times == "") critter.Available.Times = "All day";
+						_critters.Add(critter);
+					}
+				}
+				catch (Exception) { }
 			}
 		}
 	}

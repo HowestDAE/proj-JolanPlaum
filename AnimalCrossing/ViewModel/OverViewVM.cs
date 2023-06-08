@@ -12,7 +12,7 @@ namespace AnimalCrossing.ViewModel
 {
 	public class OverViewVM : ObservableObject
 	{
-		private CritterLocalRepository _localRepository;
+		private ICritterRepository _repository;
 
 		private string _selectedType;
 		public string SelectedType
@@ -43,17 +43,17 @@ namespace AnimalCrossing.ViewModel
 
 		public OverViewVM()
 		{
-			_localRepository = new CritterLocalRepository();
+			//_localRepository = new CritterApiRepository();
 
 			//SetRepository(_localRepository);
 		}
 
-		public async Task SetRepositoryAsync(CritterLocalRepository repo)
+		public async Task SetRepositoryAsync(ICritterRepository repo)
 		{
-			_localRepository = repo;
+			_repository = repo;
 
-			CritterList = await _localRepository.GetCrittersAsync();
-			CritterTypes = await _localRepository.GetCritterTypesAsync();
+			CritterList = await _repository.GetCrittersAsync();
+			CritterTypes = await _repository.GetCritterTypesAsync();
 			OnPropertyChanged(nameof(CritterList));
 			OnPropertyChanged(nameof(CritterTypes));
 
@@ -65,7 +65,7 @@ namespace AnimalCrossing.ViewModel
 
 		private async Task SwitchTypesAsync()
 		{
-			CritterList = await _localRepository.GetCrittersAsync(SelectedType);
+			CritterList = await _repository.GetCrittersAsync(SelectedType);
 			OnPropertyChanged(nameof(CritterList));
 		}
 	}
