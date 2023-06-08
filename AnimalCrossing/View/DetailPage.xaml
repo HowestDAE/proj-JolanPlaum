@@ -22,7 +22,6 @@
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Foreground" Value="{StaticResource BrownishBrush}"/>
-            <Setter Property="Background" Value="GreenYellow"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
         <Style TargetType="TextBlock" x:Key="InfoTextStyle">
@@ -83,47 +82,36 @@
             </Border>
 
             <!-- Right side -->
-            <Grid Grid.Column="1" ShowGridLines="False">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
+            <ListView x:Name="InfoList" ItemsSource="{Binding InfoList}" Grid.Column="1"
+                      Background="Transparent" BorderThickness="0" Padding="0" Margin="0"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Margin" Value="0"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="{Binding ActualWidth, ElementName=InfoList}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
 
-                <!-- Availabilty -->
-                <Border Style="{StaticResource InfoBorderStyle}" Grid.Row="0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-
-                        <StackPanel>
-                            <TextBlock Style="{StaticResource TitleInfoTextStyle}" Text="Months"/>
-                            <TextBlock Style="{StaticResource InfoTextStyle}"
-                                       Text="{Binding Critter.Available.Months, FallbackValue=All year}"/>
-                        </StackPanel>
-                        <StackPanel Grid.Row="1">
-                            <TextBlock Style="{StaticResource TitleInfoTextStyle}" Text="Times"/>
-                            <TextBlock Style="{StaticResource InfoTextStyle}"
-                                       Text="{Binding Critter.Available.Times, FallbackValue=All year}"/>
-                        </StackPanel>
-                    </Grid>
-                </Border>
-
-                <!-- Price -->
-                <Border Style="{StaticResource InfoBorderStyle}" Grid.Row="1">
-                    <StackPanel Grid.Row="1">
-                        <TextBlock Style="{StaticResource TitleInfoTextStyle}" Text="Times"/>
-                        <TextBlock Style="{StaticResource InfoTextStyle}"
-                                       Text="{Binding Critter.Price, FallbackValue=very cheap}"/>
-                    </StackPanel>
-                </Border>
-
-                <!-- Extra -->
-                <Border Style="{StaticResource InfoBorderStyle}" Grid.Row="2">
-                </Border>
-            </Grid>
+                            <Border Style="{StaticResource InfoBorderStyle}" Background="GreenYellow">
+                                <Viewbox StretchDirection="DownOnly">
+                                    <TextBlock Style="{StaticResource TitleInfoTextStyle}" Text="{Binding Key}"/>
+                                </Viewbox>
+                            </Border>
+                            <Border Style="{StaticResource InfoBorderStyle}" Grid.Column="1">
+                                <TextBlock Style="{StaticResource InfoTextStyle}" Text="{Binding Value}"/>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </Border>
 </Page>

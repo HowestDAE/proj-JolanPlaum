@@ -43,7 +43,12 @@ namespace AnimalCrossing.ViewModel
 			}
 		}
 
-		private List<KeyValuePair<string,string>> _infoList;
+		private List<KeyValuePair<string,string>> _infoList= new List<KeyValuePair<string, string>>
+				{
+					new KeyValuePair<string, string>("Months", "3-9"),
+					new KeyValuePair<string, string>("Times", "5-17"),
+					new KeyValuePair<string, string>("Price", "32000")
+				};
 
 		public List<KeyValuePair<string, string>> InfoList
 		{
