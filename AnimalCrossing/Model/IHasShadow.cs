@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace AnimalCrossing.Model
 {
-	public class FishCritter : BaseCritter, IHasShadow
+	internal interface IHasShadow
 	{
-		public override string Type { get { return "fish"; } }
-
-		public string Shadow { get; set; }
-	}
+        string Shadow { get; set; }
+    }
 }
