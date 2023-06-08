@@ -1,6 +1,7 @@
 ﻿using AnimalCrossing.Model;
 using AnimalCrossing.Repository;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,22 +13,6 @@ namespace AnimalCrossing.ViewModel
 	public class OverViewVM : ObservableObject
 	{
 		private CritterLocalRepository _localRepository;
-		public CritterLocalRepository LocalRepository
-		{
-			get { return _localRepository; }
-			set
-			{
-				_localRepository = value;
-
-				CritterList = _localRepository.GetCritters();
-				CritterTypes = _localRepository.GetCritterTypes();
-
-				if (CritterTypes.Count > 0)
-				{
-					SelectedType = CritterTypes[0];
-				}
-			}
-		}
 
 		private string _selectedType;
 		public string SelectedType
@@ -38,8 +23,7 @@ namespace AnimalCrossing.ViewModel
 				_selectedType = value;
 				OnPropertyChanged(nameof(SelectedType));
 
-				CritterList = _localRepository.GetCritters(SelectedType);
-				OnPropertyChanged(nameof(CritterList));
+				SwitchTypesAsync();
 			}
 		}
 
@@ -59,8 +43,30 @@ namespace AnimalCrossing.ViewModel
 
 		public OverViewVM()
 		{
-			LocalRepository = new CritterLocalRepository();
+			_localRepository = new CritterLocalRepository();
+
+			//SetRepository(_localRepository);
 		}
 
+		public async Task SetRepositoryAsync(CritterLocalRepository repo)
+		{
+			_localRepository = repo;
+
+			CritterList = await _localRepository.GetCrittersAsync();
+			CritterTypes = await _localRepository.GetCritterTypesAsync();
+			OnPropertyChanged(nameof(CritterList));
+			OnPropertyChanged(nameof(CritterTypes));
+
+			if (CritterTypes.Count > 0)
+			{
+				SelectedType = CritterTypes[0];
+			}
+		}
+
+		private async Task SwitchTypesAsync()
+		{
+			CritterList = await _localRepository.GetCrittersAsync(SelectedType);
+			OnPropertyChanged(nameof(CritterList));
+		}
 	}
 }

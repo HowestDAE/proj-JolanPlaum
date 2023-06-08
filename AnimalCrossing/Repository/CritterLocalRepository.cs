@@ -14,41 +14,41 @@ namespace AnimalCrossing.Repository
 	{
 		private List<BaseCritter> _critters;
 
-		public List<BaseCritter> GetCritters()
+		public async Task<List<BaseCritter>> GetCrittersAsync()
 		{
 			if (_critters == null)
 			{
 				_critters = new List<BaseCritter>();
 
-				LoadCritterType("Bugs");
-				LoadCritterType("Fish");
-				LoadCritterType("Sea");
+				await LoadCritterTypeAsync("Bugs");
+				await LoadCritterTypeAsync("Fish");
+				await LoadCritterTypeAsync("Sea");
 			}
 
 			return _critters;
 		}
 
-		public List<BaseCritter> GetCritters(string critterType)
+		public async Task<List<BaseCritter>> GetCrittersAsync(string critterType)
 		{
-			var critters = GetCritters();
+			var critters = await GetCrittersAsync();
 			var filteredCritters = critters.Where(c => c.Type.Equals(critterType)).ToList();
 			return filteredCritters;
 		}
 
-		public List<string> GetCritterTypes()
+		public async Task<List<string>> GetCritterTypesAsync()
 		{
-			var critters = GetCritters();
+			var critters = await GetCrittersAsync();
 			var types = critters.Select(c => c.Type).Distinct().ToList();
 			return types;
 		}
 
-		private void LoadCritterType(string critterType)
+		private async Task LoadCritterTypeAsync(string critterType)
 		{
 			Stream stream = System.Reflection.Assembly
 				.GetExecutingAssembly().GetManifestResourceStream
 				($"AnimalCrossing.Resources.Data.{critterType.ToLower()}.json");
 
-			string json = new StreamReader(stream).ReadToEnd();
+			string json = await new StreamReader(stream).ReadToEndAsync();
 
 			Type type = Type.GetType($"AnimalCrossing.Model.{critterType}Critter");
 			var data = JArray.Parse(json);
